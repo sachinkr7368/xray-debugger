@@ -492,9 +492,9 @@ function DataViewer({ data }: { data: Record<string, unknown> }) {
     }
     if (typeof value === "string") {
       if (value.length > 100 && !expanded) {
-        return <span>"{value.slice(0, 100)}..."</span>;
+        return <span>&quot;{value.slice(0, 100)}...&quot;</span>;
       }
-      return <span>"{value}"</span>;
+      return <span>&quot;{value}&quot;</span>;
     }
     if (Array.isArray(value)) {
       if (value.length === 0)
