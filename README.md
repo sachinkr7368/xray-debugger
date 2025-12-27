@@ -37,8 +37,8 @@ X-Ray provides transparency into multi-step decision processes by capturing:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/xray-dashboard.git
-cd xray-dashboard
+git clone https://github.com/sachinkr7368/xray-debugger.git
+cd xray-debugger
 
 # Install dependencies
 npm install
@@ -304,4 +304,4 @@ MIT License - feel free to use this for your own projects.
 
 ---
 
-Built with ❤️ for the Equal Collective take-home assignment.
+Built with ❤️
