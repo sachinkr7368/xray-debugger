@@ -12,7 +12,7 @@ async function ensureDirectories(): Promise<void> {
   try {
     await fs.mkdir(TRACES_DIR, { recursive: true });
   } catch (error) {
-    // Directory might already exist
+    console.error('Error ensuring directories:', error);
   }
 }
 
@@ -28,6 +28,7 @@ export async function getTrace(id: string): Promise<XRayTrace | null> {
     const content = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(content) as XRayTrace;
   } catch (error) {
+    console.error('Error reading trace file:', error);
     return null;
   }
 }
@@ -56,7 +57,6 @@ export async function listTraces(): Promise<XRayTraceListItem[]> {
           stepsCount: trace.steps.length,
         });
       } catch (error) {
-        // Skip invalid files
         console.error(`Error reading trace file ${file}:`, error);
       }
     }
@@ -66,6 +66,7 @@ export async function listTraces(): Promise<XRayTraceListItem[]> {
       new Date(b.startTime).getTime() - new Date(a.startTime).getTime()
     );
   } catch (error) {
+    console.error('Error listing traces:', error);
     return [];
   }
 }
@@ -89,6 +90,6 @@ export async function clearAllTraces(): Promise<void> {
       }
     }
   } catch (error) {
-    // Directory might not exist
+    console.error('Error clearing traces:', error);
   }
 }
