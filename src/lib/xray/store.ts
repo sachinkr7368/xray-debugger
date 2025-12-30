@@ -76,7 +76,8 @@ export async function deleteTrace(id: string): Promise<boolean> {
     const filePath = path.join(TRACES_DIR, `${id}.json`);
     await fs.unlink(filePath);
     return true;
-  } catch (error) {
+  } catch (error) { 
+    console.error('Error deleting trace file:', error);
     return false;
   }
 }
