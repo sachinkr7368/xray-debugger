@@ -4,11 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { 
-  Sparkles, 
   Search, 
-  Filter, 
-  Trophy, 
-  Zap, 
   Clock,
   CheckCircle2,
   XCircle,
@@ -18,15 +14,6 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { XRayTraceListItem } from '@/lib/xray';
-
-const stepTypeIcons = {
-  llm: Sparkles,
-  search: Search,
-  filter: Filter,
-  rank: Trophy,
-  transform: Zap,
-  custom: Zap,
-};
 
 const statusConfig = {
   completed: {

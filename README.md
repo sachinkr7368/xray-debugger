@@ -7,8 +7,6 @@
 
 An **X-Ray library and dashboard** for debugging non-deterministic, multi-step algorithmic systems. Traditional tracing tells you _what_ happened — X-Ray shows you **why** decisions were made.
 
-![X-Ray Dashboard](/.github/assets/dashboard.png)
-
 ## 🎯 What is X-Ray?
 
 X-Ray provides transparency into multi-step decision processes by capturing:
@@ -288,7 +286,7 @@ This demonstrates the full power of X-Ray for understanding complex decision pip
 
 ## 📝 Video Walkthrough
 
-[Link to Loom video walkthrough]
+[Link to Loom video walkthrough](https://www.loom.com/share/2b6c9cbff36348e19d91c6f6f14c6cea)
 
 In the video, I cover:
 

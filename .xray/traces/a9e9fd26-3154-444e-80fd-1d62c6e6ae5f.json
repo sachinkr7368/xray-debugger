@@ -1,0 +1,3203 @@
+{
+  "id": "a9e9fd26-3154-444e-80fd-1d62c6e6ae5f",
+  "name": "Competitor Selection",
+  "description": "Finding best competitor for: ProBrand Stainless Steel Water Bottle 32oz Insulated",
+  "startTime": "2025-12-30T12:13:29.557Z",
+  "status": "completed",
+  "steps": [
+    {
+      "id": "489c0bb4-bedc-4e18-99ee-456e7666bf50",
+      "name": "Keyword Generation",
+      "type": "llm",
+      "timestamp": "2025-12-30T12:13:29.559Z",
+      "input": {
+        "data": {
+          "product_title": "ProBrand Stainless Steel Water Bottle 32oz Insulated",
+          "category": "Sports & Outdoors > Water Bottles"
+        },
+        "description": "Reference product for keyword extraction"
+      },
+      "output": {
+        "data": {
+          "keywords": [
+            "stainless steel water bottle",
+            "insulated water bottle",
+            "vacuum insulated bottle",
+            "32oz water bottle"
+          ],
+          "model": "gpt-4 (simulated)",
+          "keyword_count": 4
+        },
+        "description": "Generated search keywords"
+      },
+      "reasoning": "Extracted key product attributes from title: material (stainless steel), feature (insulated), capacity (32oz)",
+      "metadata": {
+        "model": "gpt-4",
+        "temperature": 0.3
+      },
+      "duration": 0
+    },
+    {
+      "id": "189ff53d-1cd9-45c9-80bf-f70913f42bbb",
+      "name": "Candidate Search",
+      "type": "search",
+      "timestamp": "2025-12-30T12:13:29.562Z",
+      "input": {
+        "data": {
+          "keywords": [
+            "stainless steel water bottle",
+            "insulated water bottle",
+            "vacuum insulated bottle",
+            "32oz water bottle"
+          ],
+          "limit": 50
+        },
+        "description": "Search parameters"
+      },
+      "output": {
+        "data": {
+          "total_results": 3223,
+          "candidates_fetched": 47,
+          "sample_candidates": [
+            {
+              "asin": "B0COMP18",
+              "title": "Buzio Insulated Water Bottle 32oz",
+              "price": 18.99,
+              "rating": 4.4,
+              "reviews": 12345
+            },
+            {
+              "asin": "B0COMP21",
+              "title": "EYQ Stainless Steel Water Bottle 32oz",
+              "price": 15.99,
+              "rating": 4.1,
+              "reviews": 4321
+            },
+            {
+              "asin": "B0COMP14",
+              "title": "Iron Flask Sports Water Bottle 32oz",
+              "price": 21.97,
+              "rating": 4.5,
+              "reviews": 34521
+            },
+            {
+              "asin": "B0FAIL01",
+              "title": "Generic Water Bottle 16oz",
+              "price": 8.99,
+              "rating": 3.2,
+              "reviews": 45
+            },
+            {
+              "asin": "B0FAIL05",
+              "title": "Kids Water Bottle 12oz",
+              "price": 12.99,
+              "rating": 4,
+              "reviews": 1543
+            }
+          ]
+        },
+        "description": "Found 47 candidates"
+      },
+      "reasoning": "Fetched top 50 results by relevance; 3,223 total matches found in database",
+      "duration": 0
+    },
+    {
+      "id": "9e0b2306-8dbb-4a76-acfb-279af2f31200",
+      "name": "Apply Filters",
+      "type": "filter",
+      "timestamp": "2025-12-30T12:13:29.563Z",
+      "input": {
+        "data": {
+          "candidates_count": 47,
+          "reference_product": {
+            "asin": "B0XYZ123",
+            "title": "ProBrand Stainless Steel Water Bottle 32oz Insulated",
+            "price": 29.99,
+            "rating": 4.2,
+            "reviews": 1247
+          }
+        },
+        "description": "Candidates and reference for filtering"
+      },
+      "output": {
+        "data": {
+          "total_evaluated": 47,
+          "passed": 27,
+          "failed": 20
+        },
+        "description": "27 candidates passed all filters"
+      },
+      "reasoning": "Applied price (0.5x-2x), rating (≥3.8★), and review count (≥100) filters. 27 passed, 20 failed.",
+      "filters": [
+        {
+          "name": "price_range",
+          "rule": "0.5x - 2x of reference price",
+          "value": {
+            "min": 14.995,
+            "max": 59.98
+          }
+        },
+        {
+          "name": "min_rating",
+          "rule": "Must be at least 3.8 stars",
+          "value": 3.8
+        },
+        {
+          "name": "min_reviews",
+          "rule": "Must have at least 100 reviews",
+          "value": 100
+        }
+      ],
+      "candidates": [
+        {
+          "id": "B0COMP18",
+          "label": "Buzio Insulated Water Bottle 32oz",
+          "metrics": {
+            "price": 18.99,
+            "rating": 4.4,
+            "reviews": 12345
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$18.99 is within $14.99-$59.98",
+              "value": 18.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "12,345 >= 100",
+              "value": 12345
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP21",
+          "label": "EYQ Stainless Steel Water Bottle 32oz",
+          "metrics": {
+            "price": 15.99,
+            "rating": 4.1,
+            "reviews": 4321
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$15.99 is within $14.99-$59.98",
+              "value": 15.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.1★ >= 3.8★",
+              "value": 4.1
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "4,321 >= 100",
+              "value": 4321
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP14",
+          "label": "Iron Flask Sports Water Bottle 32oz",
+          "metrics": {
+            "price": 21.97,
+            "rating": 4.5,
+            "reviews": 34521
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$21.97 is within $14.99-$59.98",
+              "value": 21.97
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.5★ >= 3.8★",
+              "value": 4.5
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "34,521 >= 100",
+              "value": 34521
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0FAIL01",
+          "label": "Generic Water Bottle 16oz",
+          "metrics": {
+            "price": 8.99,
+            "rating": 3.2,
+            "reviews": 45
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$8.99 is below minimum $14.99",
+              "value": 8.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": false,
+              "detail": "3.2★ < 3.8★ threshold",
+              "value": 3.2
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": false,
+              "detail": "45 < 100 minimum",
+              "value": 45
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0FAIL05",
+          "label": "Kids Water Bottle 12oz",
+          "metrics": {
+            "price": 12.99,
+            "rating": 4,
+            "reviews": 1543
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$12.99 is below minimum $14.99",
+              "value": 12.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4★ >= 3.8★",
+              "value": 4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "1,543 >= 100",
+              "value": 1543
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0FAIL07",
+          "label": "Smart Water Bottle with LED",
+          "metrics": {
+            "price": 45,
+            "rating": 3.4,
+            "reviews": 89
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$45.00 is within $14.99-$59.98",
+              "value": 45
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": false,
+              "detail": "3.4★ < 3.8★ threshold",
+              "value": 3.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": false,
+              "detail": "89 < 100 minimum",
+              "value": 89
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0EDGE03",
+          "label": "Glass Water Bottle 24oz with Sleeve",
+          "metrics": {
+            "price": 22.99,
+            "rating": 4.1,
+            "reviews": 1234
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$22.99 is within $14.99-$59.98",
+              "value": 22.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.1★ >= 3.8★",
+              "value": 4.1
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "1,234 >= 100",
+              "value": 1234
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP11",
+          "label": "RTIC 26oz Water Bottle",
+          "metrics": {
+            "price": 24.99,
+            "rating": 4.4,
+            "reviews": 2876
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$24.99 is within $14.99-$59.98",
+              "value": 24.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "2,876 >= 100",
+              "value": 2876
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0PREM01",
+          "label": "LARQ Self-Cleaning Water Bottle 25oz",
+          "metrics": {
+            "price": 95,
+            "rating": 4.2,
+            "reviews": 3421
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$95.00 exceeds maximum $59.98",
+              "value": 95
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.2★ >= 3.8★",
+              "value": 4.2
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "3,421 >= 100",
+              "value": 3421
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0COMP19",
+          "label": "MIRA Stainless Steel Bottle 24oz",
+          "metrics": {
+            "price": 17.95,
+            "rating": 4.3,
+            "reviews": 6789
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$17.95 is within $14.99-$59.98",
+              "value": 17.95
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.3★ >= 3.8★",
+              "value": 4.3
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "6,789 >= 100",
+              "value": 6789
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0ACC03",
+          "label": "Water Bottle Carrier Bag with Strap",
+          "metrics": {
+            "price": 14.99,
+            "rating": 4.2,
+            "reviews": 876
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$14.99 is below minimum $14.99",
+              "value": 14.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.2★ >= 3.8★",
+              "value": 4.2
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "876 >= 100",
+              "value": 876
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0ACC06",
+          "label": "Water Bottle Handle Lid Adapter",
+          "metrics": {
+            "price": 7.99,
+            "rating": 4.1,
+            "reviews": 432
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$7.99 is below minimum $14.99",
+              "value": 7.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.1★ >= 3.8★",
+              "value": 4.1
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "432 >= 100",
+              "value": 432
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0ACC04",
+          "label": "Insulated Bottle Sleeve Holder",
+          "metrics": {
+            "price": 11.99,
+            "rating": 4,
+            "reviews": 654
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$11.99 is below minimum $14.99",
+              "value": 11.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4★ >= 3.8★",
+              "value": 4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "654 >= 100",
+              "value": 654
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0ACC05",
+          "label": "Stainless Steel Straw Set for Bottles",
+          "metrics": {
+            "price": 8.99,
+            "rating": 4.3,
+            "reviews": 2341
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$8.99 is below minimum $14.99",
+              "value": 8.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.3★ >= 3.8★",
+              "value": 4.3
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "2,341 >= 100",
+              "value": 2341
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0COMP01",
+          "label": "HydroFlask 32oz Wide Mouth Vacuum Insulated",
+          "metrics": {
+            "price": 44.99,
+            "rating": 4.5,
+            "reviews": 8932
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$44.99 is within $14.99-$59.98",
+              "value": 44.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.5★ >= 3.8★",
+              "value": 4.5
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "8,932 >= 100",
+              "value": 8932
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0FAIL02",
+          "label": "Budget Plastic Bottle 24oz",
+          "metrics": {
+            "price": 5.99,
+            "rating": 2.8,
+            "reviews": 892
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$5.99 is below minimum $14.99",
+              "value": 5.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": false,
+              "detail": "2.8★ < 3.8★ threshold",
+              "value": 2.8
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "892 >= 100",
+              "value": 892
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0FAIL03",
+          "label": "Premium Titanium Ultra Bottle 64oz",
+          "metrics": {
+            "price": 89.99,
+            "rating": 4.8,
+            "reviews": 234
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$89.99 exceeds maximum $59.98",
+              "value": 89.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.8★ >= 3.8★",
+              "value": 4.8
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "234 >= 100",
+              "value": 234
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0FAIL06",
+          "label": "Collapsible Silicone Bottle",
+          "metrics": {
+            "price": 15.99,
+            "rating": 3.6,
+            "reviews": 432
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$15.99 is within $14.99-$59.98",
+              "value": 15.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": false,
+              "detail": "3.6★ < 3.8★ threshold",
+              "value": 3.6
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "432 >= 100",
+              "value": 432
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0LOW01",
+          "label": "Cheap Aluminum Bottle 20oz",
+          "metrics": {
+            "price": 7.99,
+            "rating": 2.5,
+            "reviews": 234
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$7.99 is below minimum $14.99",
+              "value": 7.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": false,
+              "detail": "2.5★ < 3.8★ threshold",
+              "value": 2.5
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "234 >= 100",
+              "value": 234
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0LOW02",
+          "label": "No-Name Water Container 32oz",
+          "metrics": {
+            "price": 6.49,
+            "rating": 2.9,
+            "reviews": 156
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$6.49 is below minimum $14.99",
+              "value": 6.49
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": false,
+              "detail": "2.9★ < 3.8★ threshold",
+              "value": 2.9
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "156 >= 100",
+              "value": 156
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0LOW03",
+          "label": "Disposable Sports Bottles - 6 Pack",
+          "metrics": {
+            "price": 4.99,
+            "rating": 3,
+            "reviews": 567
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$4.99 is below minimum $14.99",
+              "value": 4.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": false,
+              "detail": "3★ < 3.8★ threshold",
+              "value": 3
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "567 >= 100",
+              "value": 567
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0COMP04",
+          "label": "CamelBak Chute Mag 32oz Insulated",
+          "metrics": {
+            "price": 32,
+            "rating": 4.4,
+            "reviews": 3456
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$32.00 is within $14.99-$59.98",
+              "value": 32
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "3,456 >= 100",
+              "value": 3456
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP16",
+          "label": "Hydro Cell Stainless Steel 32oz",
+          "metrics": {
+            "price": 19.95,
+            "rating": 4.3,
+            "reviews": 8765
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$19.95 is within $14.99-$59.98",
+              "value": 19.95
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.3★ >= 3.8★",
+              "value": 4.3
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "8,765 >= 100",
+              "value": 8765
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0ACC01",
+          "label": "Bottle Cleaning Brush Set - 3 Pack",
+          "metrics": {
+            "price": 12.99,
+            "rating": 4.6,
+            "reviews": 3421
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$12.99 is below minimum $14.99",
+              "value": 12.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.6★ >= 3.8★",
+              "value": 4.6
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "3,421 >= 100",
+              "value": 3421
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0EDGE02",
+          "label": "Protein Shaker Bottle 28oz",
+          "metrics": {
+            "price": 19.99,
+            "rating": 4.2,
+            "reviews": 5678
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$19.99 is within $14.99-$59.98",
+              "value": 19.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.2★ >= 3.8★",
+              "value": 4.2
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "5,678 >= 100",
+              "value": 5678
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0PREM02",
+          "label": "Ember Temperature Control Bottle",
+          "metrics": {
+            "price": 149.99,
+            "rating": 4,
+            "reviews": 892
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$149.99 exceeds maximum $59.98",
+              "value": 149.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4★ >= 3.8★",
+              "value": 4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "892 >= 100",
+              "value": 892
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0ACC07",
+          "label": "Bottle Boot Silicone Cover",
+          "metrics": {
+            "price": 6.99,
+            "rating": 4,
+            "reviews": 876
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$6.99 is below minimum $14.99",
+              "value": 6.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4★ >= 3.8★",
+              "value": 4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "876 >= 100",
+              "value": 876
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0COMP02",
+          "label": "Yeti Rambler 26oz Stainless Steel",
+          "metrics": {
+            "price": 34.99,
+            "rating": 4.4,
+            "reviews": 5621
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$34.99 is within $14.99-$59.98",
+              "value": 34.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "5,621 >= 100",
+              "value": 5621
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP08",
+          "label": "S'well Stainless Steel 25oz",
+          "metrics": {
+            "price": 35,
+            "rating": 4.1,
+            "reviews": 2134
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$35.00 is within $14.99-$59.98",
+              "value": 35
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.1★ >= 3.8★",
+              "value": 4.1
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "2,134 >= 100",
+              "value": 2134
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP12",
+          "label": "Zojirushi Stainless Steel 20oz",
+          "metrics": {
+            "price": 32,
+            "rating": 4.6,
+            "reviews": 4532
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$32.00 is within $14.99-$59.98",
+              "value": 32
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.6★ >= 3.8★",
+              "value": 4.6
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "4,532 >= 100",
+              "value": 4532
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP17",
+          "label": "FineDine Triple Insulated 25oz",
+          "metrics": {
+            "price": 16.97,
+            "rating": 4.2,
+            "reviews": 5432
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$16.97 is within $14.99-$59.98",
+              "value": 16.97
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.2★ >= 3.8★",
+              "value": 4.2
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "5,432 >= 100",
+              "value": 5432
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP24",
+          "label": "Brita Insulated Filtered 26oz",
+          "metrics": {
+            "price": 28.99,
+            "rating": 4,
+            "reviews": 1876
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$28.99 is within $14.99-$59.98",
+              "value": 28.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4★ >= 3.8★",
+              "value": 4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "1,876 >= 100",
+              "value": 1876
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP07",
+          "label": "Takeya Actives 32oz",
+          "metrics": {
+            "price": 29.99,
+            "rating": 4.6,
+            "reviews": 4521
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$29.99 is within $14.99-$59.98",
+              "value": 29.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.6★ >= 3.8★",
+              "value": 4.6
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "4,521 >= 100",
+              "value": 4521
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP09",
+          "label": "Thermos Stainless King 24oz",
+          "metrics": {
+            "price": 27.99,
+            "rating": 4.3,
+            "reviews": 3210
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$27.99 is within $14.99-$59.98",
+              "value": 27.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.3★ >= 3.8★",
+              "value": 4.3
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "3,210 >= 100",
+              "value": 3210
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP10",
+          "label": "Nalgene Wide Mouth 32oz",
+          "metrics": {
+            "price": 14.99,
+            "rating": 4.5,
+            "reviews": 12543
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$14.99 is below minimum $14.99",
+              "value": 14.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.5★ >= 3.8★",
+              "value": 4.5
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "12,543 >= 100",
+              "value": 12543
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0COMP13",
+          "label": "Simple Modern Wave 32oz",
+          "metrics": {
+            "price": 22.99,
+            "rating": 4.4,
+            "reviews": 7654
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$22.99 is within $14.99-$59.98",
+              "value": 22.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "7,654 >= 100",
+              "value": 7654
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP03",
+          "label": "Stanley Adventure Quencher 30oz",
+          "metrics": {
+            "price": 35,
+            "rating": 4.3,
+            "reviews": 4102
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$35.00 is within $14.99-$59.98",
+              "value": 35
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.3★ >= 3.8★",
+              "value": 4.3
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "4,102 >= 100",
+              "value": 4102
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP05",
+          "label": "Klean Kanteen Classic 27oz",
+          "metrics": {
+            "price": 26.95,
+            "rating": 4.3,
+            "reviews": 2890
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$26.95 is within $14.99-$59.98",
+              "value": 26.95
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.3★ >= 3.8★",
+              "value": 4.3
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "2,890 >= 100",
+              "value": 2890
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP06",
+          "label": "Contigo Autoseal 24oz",
+          "metrics": {
+            "price": 24.99,
+            "rating": 4.2,
+            "reviews": 6234
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$24.99 is within $14.99-$59.98",
+              "value": 24.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.2★ >= 3.8★",
+              "value": 4.2
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "6,234 >= 100",
+              "value": 6234
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP15",
+          "label": "Owala FreeSip 24oz",
+          "metrics": {
+            "price": 27.99,
+            "rating": 4.7,
+            "reviews": 28432
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$27.99 is within $14.99-$59.98",
+              "value": 27.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.7★ >= 3.8★",
+              "value": 4.7
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "28,432 >= 100",
+              "value": 28432
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP20",
+          "label": "Thermoflask Double Wall 24oz",
+          "metrics": {
+            "price": 19.99,
+            "rating": 4.4,
+            "reviews": 23456
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$19.99 is within $14.99-$59.98",
+              "value": 19.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "23,456 >= 100",
+              "value": 23456
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP22",
+          "label": "Swig Life 30oz Tumbler",
+          "metrics": {
+            "price": 32.95,
+            "rating": 4.5,
+            "reviews": 2134
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$32.95 is within $14.99-$59.98",
+              "value": 32.95
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.5★ >= 3.8★",
+              "value": 4.5
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "2,134 >= 100",
+              "value": 2134
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP23",
+          "label": "Corkcicle Canteen 25oz",
+          "metrics": {
+            "price": 32.95,
+            "rating": 4.3,
+            "reviews": 3654
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$32.95 is within $14.99-$59.98",
+              "value": 32.95
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.3★ >= 3.8★",
+              "value": 4.3
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "3,654 >= 100",
+              "value": 3654
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP25",
+          "label": "Healthy Human Stein 21oz",
+          "metrics": {
+            "price": 24.99,
+            "rating": 4.4,
+            "reviews": 2341
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$24.99 is within $14.99-$59.98",
+              "value": 24.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "2,341 >= 100",
+              "value": 2341
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0FAIL04",
+          "label": "Luxury Crystal Water Carafe",
+          "metrics": {
+            "price": 129,
+            "rating": 4.9,
+            "reviews": 67
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$129.00 exceeds maximum $59.98",
+              "value": 129
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.9★ >= 3.8★",
+              "value": 4.9
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": false,
+              "detail": "67 < 100 minimum",
+              "value": 67
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0ACC02",
+          "label": "Replacement Lid for HydroFlask Wide Mouth",
+          "metrics": {
+            "price": 9.99,
+            "rating": 4.4,
+            "reviews": 1892
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": false,
+              "detail": "$9.99 is below minimum $14.99",
+              "value": 9.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "1,892 >= 100",
+              "value": 1892
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0EDGE01",
+          "label": "Coffee Travel Mug 16oz Insulated",
+          "metrics": {
+            "price": 24.99,
+            "rating": 4.4,
+            "reviews": 3456
+          },
+          "evaluations": [
+            {
+              "id": "price_range",
+              "label": "Price Range",
+              "passed": true,
+              "detail": "$24.99 is within $14.99-$59.98",
+              "value": 24.99
+            },
+            {
+              "id": "min_rating",
+              "label": "Minimum Rating",
+              "passed": true,
+              "detail": "4.4★ >= 3.8★",
+              "value": 4.4
+            },
+            {
+              "id": "min_reviews",
+              "label": "Minimum Reviews",
+              "passed": true,
+              "detail": "3,456 >= 100",
+              "value": 3456
+            }
+          ],
+          "qualified": true
+        }
+      ],
+      "duration": 0
+    },
+    {
+      "id": "5f65a4f2-7604-4058-8771-6fde8af5f103",
+      "name": "LLM Relevance Check",
+      "type": "llm",
+      "timestamp": "2025-12-30T12:13:29.563Z",
+      "input": {
+        "data": {
+          "candidates_count": 27,
+          "reference_product": {
+            "asin": "B0XYZ123",
+            "title": "ProBrand Stainless Steel Water Bottle 32oz Insulated",
+            "category": "Sports & Outdoors > Water Bottles"
+          },
+          "model": "gpt-4"
+        },
+        "description": "Filtered candidates for relevance evaluation"
+      },
+      "output": {
+        "data": {
+          "total_evaluated": 27,
+          "confirmed_competitors": 25,
+          "false_positives_removed": 2
+        },
+        "description": "25 true competitors identified"
+      },
+      "reasoning": "LLM evaluated 27 candidates against reference \"ProBrand Stainless Steel Water Bottle 32oz Insulated\". Identified 2 false positives (accessories, replacement parts, different categories).",
+      "candidates": [
+        {
+          "id": "B0COMP18",
+          "label": "Buzio Insulated Water Bottle 32oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP21",
+          "label": "EYQ Stainless Steel Water Bottle 32oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP14",
+          "label": "Iron Flask Sports Water Bottle 32oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0EDGE03",
+          "label": "Glass Water Bottle 24oz with Sleeve",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP11",
+          "label": "RTIC 26oz Water Bottle",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP19",
+          "label": "MIRA Stainless Steel Bottle 24oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP01",
+          "label": "HydroFlask 32oz Wide Mouth Vacuum Insulated",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP04",
+          "label": "CamelBak Chute Mag 32oz Insulated",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP16",
+          "label": "Hydro Cell Stainless Steel 32oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0EDGE02",
+          "label": "Protein Shaker Bottle 28oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Shaker Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": false,
+              "detail": "Different product category",
+              "value": 0.75
+            }
+          ],
+          "qualified": false
+        },
+        {
+          "id": "B0COMP02",
+          "label": "Yeti Rambler 26oz Stainless Steel",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP08",
+          "label": "S'well Stainless Steel 25oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP12",
+          "label": "Zojirushi Stainless Steel 20oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP17",
+          "label": "FineDine Triple Insulated 25oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP24",
+          "label": "Brita Insulated Filtered 26oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP07",
+          "label": "Takeya Actives 32oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP09",
+          "label": "Thermos Stainless King 24oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP13",
+          "label": "Simple Modern Wave 32oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP03",
+          "label": "Stanley Adventure Quencher 30oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP05",
+          "label": "Klean Kanteen Classic 27oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP06",
+          "label": "Contigo Autoseal 24oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP15",
+          "label": "Owala FreeSip 24oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP20",
+          "label": "Thermoflask Double Wall 24oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP22",
+          "label": "Swig Life 30oz Tumbler",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP23",
+          "label": "Corkcicle Canteen 25oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0COMP25",
+          "label": "Healthy Human Stein 21oz",
+          "metrics": {
+            "category": "Sports & Outdoors > Water Bottles",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": true,
+              "detail": "Same product category - valid competitor",
+              "value": 0.92
+            }
+          ],
+          "qualified": true
+        },
+        {
+          "id": "B0EDGE01",
+          "label": "Coffee Travel Mug 16oz Insulated",
+          "metrics": {
+            "category": "Kitchen > Travel Mugs",
+            "isAccessory": false
+          },
+          "evaluations": [
+            {
+              "id": "is_competitor",
+              "label": "True Competitor",
+              "passed": false,
+              "detail": "Different product category",
+              "value": 0.75
+            }
+          ],
+          "qualified": false
+        }
+      ],
+      "metadata": {
+        "prompt_template": "Given the reference product, determine if each candidate is a true competitor (same product type) or a false positive (accessory, replacement part, bundle, etc.)"
+      },
+      "duration": 0
+    },
+    {
+      "id": "3066afd2-182b-43ee-8650-ba29fabc2a16",
+      "name": "Rank & Select",
+      "type": "rank",
+      "timestamp": "2025-12-30T12:13:29.563Z",
+      "input": {
+        "data": {
+          "candidates_count": 25,
+          "reference_product": {
+            "asin": "B0XYZ123",
+            "title": "ProBrand Stainless Steel Water Bottle 32oz Insulated",
+            "price": 29.99,
+            "rating": 4.2,
+            "reviews": 1247
+          },
+          "ranking_criteria": {
+            "primary": "review_count (40%)",
+            "secondary": "rating (35%)",
+            "tertiary": "price_proximity (25%)"
+          }
+        },
+        "description": "Candidates for final ranking"
+      },
+      "output": {
+        "data": {
+          "selected_competitor": {
+            "asin": "B0COMP15",
+            "title": "Owala FreeSip 24oz",
+            "price": 27.99,
+            "rating": 4.7,
+            "reviews": 28432
+          },
+          "ranking": [
+            {
+              "rank": 1,
+              "asin": "B0COMP15",
+              "title": "Owala FreeSip 24oz",
+              "scores": {
+                "reviewScore": 0.82,
+                "ratingScore": 0.85,
+                "priceProximityScore": 0.93,
+                "totalScore": 0.86
+              }
+            },
+            {
+              "rank": 2,
+              "asin": "B0COMP14",
+              "title": "Iron Flask Sports Water Bottle 32oz",
+              "scores": {
+                "reviewScore": 1,
+                "ratingScore": 0.75,
+                "priceProximityScore": 0.73,
+                "totalScore": 0.85
+              }
+            },
+            {
+              "rank": 3,
+              "asin": "B0COMP20",
+              "title": "Thermoflask Double Wall 24oz",
+              "scores": {
+                "reviewScore": 0.68,
+                "ratingScore": 0.7,
+                "priceProximityScore": 0.67,
+                "totalScore": 0.68
+              }
+            },
+            {
+              "rank": 4,
+              "asin": "B0COMP07",
+              "title": "Takeya Actives 32oz",
+              "scores": {
+                "reviewScore": 0.13,
+                "ratingScore": 0.8,
+                "priceProximityScore": 1,
+                "totalScore": 0.58
+              }
+            },
+            {
+              "rank": 5,
+              "asin": "B0COMP12",
+              "title": "Zojirushi Stainless Steel 20oz",
+              "scores": {
+                "reviewScore": 0.13,
+                "ratingScore": 0.8,
+                "priceProximityScore": 0.93,
+                "totalScore": 0.57
+              }
+            }
+          ]
+        },
+        "description": "Selected: Owala FreeSip 24oz"
+      },
+      "reasoning": "Ranked 25 candidates using weighted scoring: review count (40%), rating (35%), price proximity (25%). Selected \"Owala FreeSip 24oz\" with score 0.86 - 28,432 reviews, 4.7★, $27.99.",
+      "candidates": [
+        {
+          "id": "B0COMP15",
+          "label": "Owala FreeSip 24oz",
+          "metrics": {
+            "price": 27.99,
+            "rating": 4.7,
+            "reviews": 28432
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.82 (weight: 40%)",
+              "value": 0.82
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.85 (weight: 35%)",
+              "value": 0.85
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.93 (weight: 25%)",
+              "value": 0.93
+            }
+          ],
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "id": "B0COMP14",
+          "label": "Iron Flask Sports Water Bottle 32oz",
+          "metrics": {
+            "price": 21.97,
+            "rating": 4.5,
+            "reviews": 34521
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "1 (weight: 40%)",
+              "value": 1
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.75 (weight: 35%)",
+              "value": 0.75
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.73 (weight: 25%)",
+              "value": 0.73
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP20",
+          "label": "Thermoflask Double Wall 24oz",
+          "metrics": {
+            "price": 19.99,
+            "rating": 4.4,
+            "reviews": 23456
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.68 (weight: 40%)",
+              "value": 0.68
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.7 (weight: 35%)",
+              "value": 0.7
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.67 (weight: 25%)",
+              "value": 0.67
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP07",
+          "label": "Takeya Actives 32oz",
+          "metrics": {
+            "price": 29.99,
+            "rating": 4.6,
+            "reviews": 4521
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.13 (weight: 40%)",
+              "value": 0.13
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.8 (weight: 35%)",
+              "value": 0.8
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "1 (weight: 25%)",
+              "value": 1
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP12",
+          "label": "Zojirushi Stainless Steel 20oz",
+          "metrics": {
+            "price": 32,
+            "rating": 4.6,
+            "reviews": 4532
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.13 (weight: 40%)",
+              "value": 0.13
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.8 (weight: 35%)",
+              "value": 0.8
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.93 (weight: 25%)",
+              "value": 0.93
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP18",
+          "label": "Buzio Insulated Water Bottle 32oz",
+          "metrics": {
+            "price": 18.99,
+            "rating": 4.4,
+            "reviews": 12345
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.36 (weight: 40%)",
+              "value": 0.36
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.7 (weight: 35%)",
+              "value": 0.7
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.63 (weight: 25%)",
+              "value": 0.63
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP13",
+          "label": "Simple Modern Wave 32oz",
+          "metrics": {
+            "price": 22.99,
+            "rating": 4.4,
+            "reviews": 7654
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.22 (weight: 40%)",
+              "value": 0.22
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.7 (weight: 35%)",
+              "value": 0.7
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.77 (weight: 25%)",
+              "value": 0.77
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP04",
+          "label": "CamelBak Chute Mag 32oz Insulated",
+          "metrics": {
+            "price": 32,
+            "rating": 4.4,
+            "reviews": 3456
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.1 (weight: 40%)",
+              "value": 0.1
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.7 (weight: 35%)",
+              "value": 0.7
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.93 (weight: 25%)",
+              "value": 0.93
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP02",
+          "label": "Yeti Rambler 26oz Stainless Steel",
+          "metrics": {
+            "price": 34.99,
+            "rating": 4.4,
+            "reviews": 5621
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.16 (weight: 40%)",
+              "value": 0.16
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.7 (weight: 35%)",
+              "value": 0.7
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.83 (weight: 25%)",
+              "value": 0.83
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP22",
+          "label": "Swig Life 30oz Tumbler",
+          "metrics": {
+            "price": 32.95,
+            "rating": 4.5,
+            "reviews": 2134
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.06 (weight: 40%)",
+              "value": 0.06
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.75 (weight: 35%)",
+              "value": 0.75
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.9 (weight: 25%)",
+              "value": 0.9
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP16",
+          "label": "Hydro Cell Stainless Steel 32oz",
+          "metrics": {
+            "price": 19.95,
+            "rating": 4.3,
+            "reviews": 8765
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.25 (weight: 40%)",
+              "value": 0.25
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.65 (weight: 35%)",
+              "value": 0.65
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.67 (weight: 25%)",
+              "value": 0.67
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP09",
+          "label": "Thermos Stainless King 24oz",
+          "metrics": {
+            "price": 27.99,
+            "rating": 4.3,
+            "reviews": 3210
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.09 (weight: 40%)",
+              "value": 0.09
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.65 (weight: 35%)",
+              "value": 0.65
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.93 (weight: 25%)",
+              "value": 0.93
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP23",
+          "label": "Corkcicle Canteen 25oz",
+          "metrics": {
+            "price": 32.95,
+            "rating": 4.3,
+            "reviews": 3654
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.11 (weight: 40%)",
+              "value": 0.11
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.65 (weight: 35%)",
+              "value": 0.65
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.9 (weight: 25%)",
+              "value": 0.9
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP11",
+          "label": "RTIC 26oz Water Bottle",
+          "metrics": {
+            "price": 24.99,
+            "rating": 4.4,
+            "reviews": 2876
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.08 (weight: 40%)",
+              "value": 0.08
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.7 (weight: 35%)",
+              "value": 0.7
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.83 (weight: 25%)",
+              "value": 0.83
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP01",
+          "label": "HydroFlask 32oz Wide Mouth Vacuum Insulated",
+          "metrics": {
+            "price": 44.99,
+            "rating": 4.5,
+            "reviews": 8932
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.26 (weight: 40%)",
+              "value": 0.26
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.75 (weight: 35%)",
+              "value": 0.75
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.5 (weight: 25%)",
+              "value": 0.5
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP05",
+          "label": "Klean Kanteen Classic 27oz",
+          "metrics": {
+            "price": 26.95,
+            "rating": 4.3,
+            "reviews": 2890
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.08 (weight: 40%)",
+              "value": 0.08
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.65 (weight: 35%)",
+              "value": 0.65
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.9 (weight: 25%)",
+              "value": 0.9
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP06",
+          "label": "Contigo Autoseal 24oz",
+          "metrics": {
+            "price": 24.99,
+            "rating": 4.2,
+            "reviews": 6234
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.18 (weight: 40%)",
+              "value": 0.18
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.6 (weight: 35%)",
+              "value": 0.6
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.83 (weight: 25%)",
+              "value": 0.83
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP03",
+          "label": "Stanley Adventure Quencher 30oz",
+          "metrics": {
+            "price": 35,
+            "rating": 4.3,
+            "reviews": 4102
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.12 (weight: 40%)",
+              "value": 0.12
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.65 (weight: 35%)",
+              "value": 0.65
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.83 (weight: 25%)",
+              "value": 0.83
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP25",
+          "label": "Healthy Human Stein 21oz",
+          "metrics": {
+            "price": 24.99,
+            "rating": 4.4,
+            "reviews": 2341
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.07 (weight: 40%)",
+              "value": 0.07
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.7 (weight: 35%)",
+              "value": 0.7
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.83 (weight: 25%)",
+              "value": 0.83
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP19",
+          "label": "MIRA Stainless Steel Bottle 24oz",
+          "metrics": {
+            "price": 17.95,
+            "rating": 4.3,
+            "reviews": 6789
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.2 (weight: 40%)",
+              "value": 0.2
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.65 (weight: 35%)",
+              "value": 0.65
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.6 (weight: 25%)",
+              "value": 0.6
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP24",
+          "label": "Brita Insulated Filtered 26oz",
+          "metrics": {
+            "price": 28.99,
+            "rating": 4,
+            "reviews": 1876
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.05 (weight: 40%)",
+              "value": 0.05
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.5 (weight: 35%)",
+              "value": 0.5
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.97 (weight: 25%)",
+              "value": 0.97
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP08",
+          "label": "S'well Stainless Steel 25oz",
+          "metrics": {
+            "price": 35,
+            "rating": 4.1,
+            "reviews": 2134
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.06 (weight: 40%)",
+              "value": 0.06
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.55 (weight: 35%)",
+              "value": 0.55
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.83 (weight: 25%)",
+              "value": 0.83
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP17",
+          "label": "FineDine Triple Insulated 25oz",
+          "metrics": {
+            "price": 16.97,
+            "rating": 4.2,
+            "reviews": 5432
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.16 (weight: 40%)",
+              "value": 0.16
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.6 (weight: 35%)",
+              "value": 0.6
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.57 (weight: 25%)",
+              "value": 0.57
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0EDGE03",
+          "label": "Glass Water Bottle 24oz with Sleeve",
+          "metrics": {
+            "price": 22.99,
+            "rating": 4.1,
+            "reviews": 1234
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.04 (weight: 40%)",
+              "value": 0.04
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.55 (weight: 35%)",
+              "value": 0.55
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.77 (weight: 25%)",
+              "value": 0.77
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        },
+        {
+          "id": "B0COMP21",
+          "label": "EYQ Stainless Steel Water Bottle 32oz",
+          "metrics": {
+            "price": 15.99,
+            "rating": 4.1,
+            "reviews": 4321
+          },
+          "evaluations": [
+            {
+              "id": "review_score",
+              "label": "Review Score",
+              "passed": true,
+              "detail": "0.13 (weight: 40%)",
+              "value": 0.13
+            },
+            {
+              "id": "rating_score",
+              "label": "Rating Score",
+              "passed": true,
+              "detail": "0.55 (weight: 35%)",
+              "value": 0.55
+            },
+            {
+              "id": "price_proximity_score",
+              "label": "Price Proximity",
+              "passed": true,
+              "detail": "0.53 (weight: 25%)",
+              "value": 0.53
+            }
+          ],
+          "qualified": true,
+          "selected": false
+        }
+      ],
+      "duration": 0
+    }
+  ],
+  "metadata": {
+    "referenceProduct": {
+      "asin": "B0XYZ123",
+      "title": "ProBrand Stainless Steel Water Bottle 32oz Insulated",
+      "price": 29.99,
+      "rating": 4.2,
+      "reviews": 1247
+    }
+  },
+  "endTime": "2025-12-30T12:13:29.563Z",
+  "duration": 6,
+  "result": {
+    "success": true,
+    "summary": "Successfully selected competitor: Owala FreeSip 24oz",
+    "data": {
+      "selected_competitor": {
+        "asin": "B0COMP15",
+        "title": "Owala FreeSip 24oz",
+        "price": 27.99,
+        "rating": 4.7,
+        "reviews": 28432
+      },
+      "pipeline_stats": {
+        "initial_candidates": 47,
+        "after_filters": 27,
+        "after_relevance_check": 25,
+        "final_selection": 1
+      }
+    }
+  }
+}

@@ -295,7 +295,7 @@ export default function HomePage() {
               <span>X-Ray Dashboard</span>
             </div>
             <a
-              href="https://github.com"
+              href="https://github.com/sachinkr7368/xray-debugger"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
