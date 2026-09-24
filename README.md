@@ -283,15 +283,3 @@ The included demo implements a **Competitor Product Selection** pipeline:
 5. **Rank & Select** (Rank step) — Scores candidates and selects best match
 
 This demonstrates the full power of X-Ray for understanding complex decision pipelines.
-
-## 📝 Video Walkthrough
-
-[Link to Loom video walkthrough](https://www.loom.com/share/2b6c9cbff36348e19d91c6f6f14c6cea)
-
-In the video, I cover:
-
-- System architecture and design decisions
-- Library API design choices
-- Dashboard UX walkthrough
-- Demo application explanation
-- Trade-offs and future improvements
